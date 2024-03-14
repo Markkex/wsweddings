@@ -1,0 +1,36 @@
+.contact-container {
+  background-color: #faf1e2;
+  border-radius: 25px 25px 25px 25px;
+  -webkit-box-shadow: 4px 4px 11px -3px rgba(0, 0, 0, 0.25);
+  -moz-box-shadow: 4px 4px 11px -3px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 4px 11px -3px rgba(0, 0, 0, 0.75);
+}
+
+.MuiTextField-root	{
+    color: #000;
+
+/* Cora */
+font-family: "Cormorant Garamond";
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 0.32px;
+}
+
+.MuiFormLabel-root, .Mui-focused  {
+    color: #000 !important;
+
+    /* Cora */
+    font-family: "Cormorant Garamond";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32px;
+}
+
+.contact-button {
+    border-radius: 25px;
+    
+}

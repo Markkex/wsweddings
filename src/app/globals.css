@@ -1,33 +1,179 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary-color: #673d1c;
+  --secondary-color: #a75b26;
+  --terciary-color: #ab7d2a;
+  --fourth-color: #f0f2f5;
+  --fifth-color: #a26c40;
+  --sixth-color: #dda376;
+  --seventh-color: #fefbf0;
+  --border-radius: 25px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.global-text-cormorand {
+  color: #000;
+  text-align: center;
+  font-family: "Cormorant Garamond";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.32px;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  margin: 0;
+  padding: 0;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.w-100 {
+  width: 100%;
+}
+
+.flex-space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.menu-items-color {
+  color: var(--sixth-color) !important;
+  text-decoration: none;
+}
+
+.hero-video-frame {
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+.transparent-background-color {
+  background-color: transparent;
+}
+
+#my-hero-video {
+  max-width: 100%;
+}
+
+.pages-titles {
+  color: #AE6D3F;
+
+font-size: 65px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: -5.2px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+@media only screen and (max-width: 900px) {
+  #my-hero-video {
+    max-width: 900px;
   }
+}
+
+.clip-color-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.clip-color-div {
+  overflow: hidden;
+  color: #673d1c;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  /* Cizel TITLE */
+  font-family: Cinzel;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.5px;
+  padding: 5px 30px;
+  background-color: rgba(221, 163, 118, 0.27);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: var(--border-radius);
+  text-transform: uppercase;
+}
+
+.about-me-hello {
+  color: #000;
+  text-align: center;
+
+  /* CIZEL */
+  font-family: Cinzel;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.36px;
+  text-transform: uppercase;
+}
+
+.about-me-text {
+  color: #000;
+  text-align: center;
+  font-family: "Cormorant Garamond";
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.36px;
+}
+
+/* Footer */
+.background-footer {
+  background: rgba(221, 163, 118, 0.15);
+}
+
+.faq-question {
+  border-radius: 25px;
+  background-color: #FAF2E6;
+  padding: 30px;
+}
+
+.faq-question-title {
+  color: #AE6D3F;
+text-align: center;
+
+/* FAQ */
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 0.48px;
+} 
+
+.faq-question-answer {
+  color: #000;
+text-align: center;
+
+/* body faq */
+font-family: "Cormorant Garamond";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+letter-spacing: 0.4px;
+}
+
+.faq-title-height {
+  height: 101px;
+}
+
+.faq-container-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.faq-container {
+  height: 350px;
 }

@@ -1,0 +1,39 @@
+.scale-negative-1 {
+    transform:scaleX(-1);
+}
+
+.negative-margin-left-25 {
+    margin-left: -50px;
+}
+
+@media only screen and (max-width: 600px) {
+    .negative-margin-left-25 {
+        margin-left: -25px;
+    }
+}
+
+.text-absoulte-inquiry {
+    position: absolute;
+    top: 25px; 
+    left: -15px;
+}
+
+@media only screen and (max-width: 600px) {
+    .text-absoulte-inquiry { 
+        left: 0;
+    }
+}
+
+.margin-left-50 {
+    margin-left: 75px;
+}
+
+@media only screen and (max-width: 600px) {
+    .margin-left-50 {
+        margin-left: 0;
+    }
+}
+
+.no-padding {
+    padding: 0 !important;
+}
