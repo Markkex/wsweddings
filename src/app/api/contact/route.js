@@ -28,17 +28,22 @@ export async function POST(request, response) {
 
     try {
 
-        const mail = await transporter.sendMail({
-            from: "hello@wilsonsoaresfilm.com",
-            to: "hello@wilsonsoaresfilm.com",
-            subject: `Website activity from ${name}`,
-            html: `
-            <p>Name: ${name} </p>
-            <p>Email: ${email} </p>
-            <p>Message: ${message} </p>
-            <p>Message: ${budget} </p>
-            `,
-        })
+        
+        await new Promise((resolve, reject) => {
+            // send mail
+            const mail = transporter.sendMail({
+                from: "hello@wilsonsoaresfilm.com",
+                to: "hello@wilsonsoaresfilm.com",
+                subject: `Website activity from ${name}`,
+                html: `
+                <p>Name: ${name} </p>
+                <p>Email: ${email} </p>
+                <p>Message: ${message} </p>
+                <p>Budget: ${budget} </p>
+                `,
+            })
+    
+        });
 
         return NextResponse.json({ message: "Success: email was sent" })
 
