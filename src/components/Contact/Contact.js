@@ -31,7 +31,10 @@ export default function Contact() {
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
-        body: formData,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(obj),
       });
 
       if (!response.ok) {

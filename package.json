@@ -2,10 +2,13 @@
   "name": "wsweddings",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://wilsonsoaresfilm.com",
   "scripts": {
     "dev": "next dev",
+    "dev_server": "node server.js",
     "build": "next build",
     "start": "next start",
+    "start_server": "NODE_ENV=production node server.js",
     "lint": "next lint"
   },
   "dependencies": {

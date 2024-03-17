@@ -7,15 +7,23 @@ const nodemailer = require('nodemailer');
 export async function POST(request, response) {
     
     console.log("dealing with request")
-    const formData = await request.formData()
+    /*
+    const formData = await request.formData
     const name = formData.get('name')
     const email = formData.get('email')
     const message = formData.get('message')
     const budget = formData.get('budget')
-
-
+    */
+    const data = await request.json();
+   
+    const name = data.name
+    const email = data.email
+    const message = data.message
+    const budget = data.budget
+ 
+    console.log("create transport")
     // create transporter object
-    const transporter = nodemailer.createTransport({
+    const transporter = await nodemailer.createTransport({
         host: "mail.wilsonsoaresfilm.com",
         port: 465,
         secure: true, // Use `true` for port 465, `false` for all other ports
@@ -24,14 +32,13 @@ export async function POST(request, response) {
           pass: "avilafz93",
         },
       });
-      
+      console.log("created transport")
 
     try {
 
         
-        await new Promise((resolve, reject) => {
-            // send mail
-            const mail = transporter.sendMail({
+        console.log("sending email")
+            const mail = await transporter.sendMail({
                 from: "hello@wilsonsoaresfilm.com",
                 to: "hello@wilsonsoaresfilm.com",
                 subject: `Website activity from ${name}`,
@@ -42,14 +49,12 @@ export async function POST(request, response) {
                 <p>Budget: ${budget} </p>
                 `,
             })
-    
-        });
 
         return NextResponse.json({ message: "Success: email was sent" })
 
     } catch (error) {
         console.log(error)
-        NextResponse.status(500).json({ message: "COULD NOT SEND MESSAGE" })
+        NextResponse.status(500).json({ message: error })
     }
 
 
