@@ -65,7 +65,7 @@ function ResponsiveAppBar() {
         position={pathname === '/' ? "fixed" : "sticky"}
         className="transparent-background-color no-padding"
       >
-        <Container maxWidth="xl">
+        <Container maxWidth="lg">
           <Toolbar disableGutters>
             <Box
               sx={{

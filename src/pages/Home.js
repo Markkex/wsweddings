@@ -1,11 +1,45 @@
+"use client"
+
 import { Box, Typography } from "@mui/material";
-import Menu from "../components/Menu/Menu";
 import { Container } from "@mui/system";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import Image from "next/image";
-import Footer from "@/components/Footer/Footer";
+import { useState, useEffect } from "react";
 
 export default function Homepage() {
+  const [uris, setUris] = useState(
+    [
+      {
+        name: "video-web-phone.mp4",
+      },
+      {
+        name: "hero-video-v2.mp4", 
+      }, 
+      {
+        name: "video-web-4k.mp4"
+      }
+    ]
+  );
+  const [videoUri, setVideoUri] = useState("");
+
+  useEffect(() => {
+    getCorrectUrlForFilm();
+  }, [])
+  
+  const getCorrectUrlForFilm = async () => {
+    let videoUri = "";
+    if(window.innerWidth < 901) {
+      videoUri = uris[0].name;
+    } else if (window.innerWidth >= 901 && window.innerWidth < 1901) {
+      videoUri = uris[1].name;
+    } else {
+      videoUri = uris[2].name;
+    }
+    setVideoUri(videoUri);
+  }
+
+
+
   return (
     <div>
       <section className="hero-section">
@@ -18,7 +52,10 @@ export default function Homepage() {
             playsInline
             preload="true"
           >
-            <source src="hero-video-v2.mp4" type="video/mp4" />
+          {
+            window.innerWidth < 901 ? <source src={uris[0].name} type="video/mp4" /> : window.innerWidth >= 901 && window.innerWidth < 1901 ? <source src={uris[1].name} type="video/mp4" /> : <source src={uris[2].name} type="video/mp4" /> 
+          }
+            <source src={videoUri} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
