@@ -37,7 +37,13 @@ export default function Page() {
           </Grid>
         </div>
         <Box>
-          <Contact />
+        <Grid spacing={3}>
+            <Grid xs={0} md={1}></Grid>
+            <Grid xs={12} md={10}>
+            <Contact />
+            </Grid>
+          <Grid xs={0} md={1}></Grid>
+          </Grid>
         </Box>
       </Box>
       <Box></Box>
