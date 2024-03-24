@@ -63,16 +63,16 @@ function ResponsiveAppBar() {
     <MenuScrollToChange>
       <AppBar
         position={pathname === '/' ? "fixed" : "sticky"}
-        className="transparent-background-color no-padding"
+        className="transparent-background-color no-padding padding-appbar"
       >
-        <Container maxWidth="lg">
+        
           <Toolbar disableGutters>
+          
             <Box
               sx={{
-                flexGrow: { xs: 1, md: 1 },
                 display: { xs: "flex", md: "flex" },
               }}
-              className="negative-margin-left-25"
+              flexGrow={{xs: 1, md: 1}}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -92,7 +92,7 @@ function ResponsiveAppBar() {
                   noWrap
                   onClick={() => console.log("cenas")}
                   sx={{
-                    flexGrow: 1,
+                    
                     fontFamily: "Cinzel",
                     fontWeight: 600,
                     color: "#F2E7D3",
@@ -105,10 +105,10 @@ function ResponsiveAppBar() {
             </Box>
             <Box
               sx={{
-                flexGrow: { xs: 2, md: 1 },
                 display: { xs: "flex", md: "flex" },
+                justifyContent: "center"
               }}
-              className="margin-left-50"
+              flexGrow={3}
             >
             <Link href="/">
               <Image
@@ -117,11 +117,12 @@ function ResponsiveAppBar() {
                 height={75}
                 alt="Wilson Soares Film Logo"
                 priority
+                className="margin-left-50"
               />
               </Link>
             </Box>
 
-            <Box sx={{ flexGrow: 0, display: { xs: "flex", md: "none" } }}>
+            <Box sx={{  display: { xs: "flex", md: "none" }, justifyContent:"flex-end", flexGrow: "1" }}>
               <IconButton
                 size="large"
                 aria-label="account of current user"
@@ -159,7 +160,7 @@ function ResponsiveAppBar() {
                 ))}
               </Menu>
             </Box>
-            <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
+            <Box sx={{ display: { xs: "none", md: "flex" }, justifyContent:"flex-end", flexGrow: "1" }}>
               {pages.map((page) => (
                 <Button
                   key={page.name}
@@ -170,8 +171,9 @@ function ResponsiveAppBar() {
                 </Button>
               ))}
             </Box>
+            
           </Toolbar>
-        </Container>
+        
       </AppBar>
     </MenuScrollToChange>
   );

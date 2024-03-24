@@ -42,7 +42,6 @@ body {
 
 .hero-video-frame {
   height: 100vh;
-  width: 100vw;
   overflow: hidden;
 }
 
@@ -51,7 +50,7 @@ body {
 }
 
 #my-hero-video {
-  max-width: 100%;
+  width: 100%;
 }
 
 .pages-titles {
@@ -68,11 +67,6 @@ letter-spacing: -5.2px;
   text-align: center;
 }
 
-@media only screen and (max-width: 900px) {
-  #my-hero-video {
-    max-width: 900px;
-  }
-}
 
 .clip-color-container {
   display: flex;
