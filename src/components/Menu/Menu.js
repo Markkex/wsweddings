@@ -25,6 +25,7 @@ import { useState } from "react";
 import Modal from "@mui/material/Modal";
 import Contact from "@/components/Contact/Contact";
 import CancelIcon from '@mui/icons-material/Cancel';
+import { useEffect } from "react";
 const pages = [
   {
     name: "Testimonials",
@@ -40,22 +41,6 @@ const pages = [
   },
 ];
 
-const windowHeight = () => {
-  if(window.innerWidth <= 600) {
-    return "100vh";
-  } else {
-    return "auto";
-  }
-}
-
-const windowWidth = () => {
-  if(window.innerWidth <= 600) {
-    return "100vw";
-  } else {
-    return "auto";
-  }
-}
-
 const style = {
   position: 'absolute',
   top: '50%',
@@ -63,8 +48,6 @@ const style = {
   transform: 'translate(-50%, -50%)',
   bgcolor: '#FEFBF0',
   borderRadius: '25px',
-  height: windowHeight(),
-  width: windowWidth(),
   p: 4,
 };
 
@@ -75,6 +58,28 @@ function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const pathname = usePathname();
+
+
+
+  useEffect(() => {
+    let width = null;
+    let height = null;
+    if(window.innerWidth <= 600) {
+      width = "100vw";
+    } else {
+      width = "auto";
+    }
+
+    if(window.innerWidth <= 600) {
+      height = "100vh";
+    } else {
+      height = "auto";
+    }
+  
+    style.height = height;
+    style.width = width;
+  }, [])
+  
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
