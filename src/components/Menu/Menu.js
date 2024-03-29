@@ -40,6 +40,22 @@ const pages = [
   },
 ];
 
+const windowHeight = () => {
+  if(window.innerWidth <= 600) {
+    return "100vh";
+  } else {
+    return "auto";
+  }
+}
+
+const windowWidth = () => {
+  if(window.innerWidth <= 600) {
+    return "100vw";
+  } else {
+    return "auto";
+  }
+}
+
 const style = {
   position: 'absolute',
   top: '50%',
@@ -47,9 +63,9 @@ const style = {
   transform: 'translate(-50%, -50%)',
   bgcolor: '#FEFBF0',
   borderRadius: '25px',
-  pt: 4,
-  px: 2,
-  pb: 2,
+  height: windowHeight(),
+  width: windowWidth(),
+  p: 4,
 };
 
 function ResponsiveAppBar() {
@@ -211,7 +227,7 @@ function ResponsiveAppBar() {
         aria-describedby="modal-modal-description"
       >
       <Box sx={style}>
-        <div  style={{display:'flex', paddingBottom: '40px', justifyContent: 'flex-end'}} onClick={handleClose}>
+        <div  style={{display:'flex', padding: '20px', justifyContent: 'flex-end'}} onClick={handleClose}>
         <CancelIcon  sx={{color: '#DDA376'}}/>
         </div>
         <div style={{textAlign: "center"}}>
