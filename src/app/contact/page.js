@@ -24,12 +24,12 @@ export default function Page() {
               <div>
                 <span>
                   For a full price list or to place a sample order please fill
-                  out form below
+                  out the form below.
                 </span>
               </div>
               <div>
                 <span>
-                  Allow a few moments for form to send and receive confirmation
+                  Allow a few moments for the form to send and receive confirmation.
                 </span>
               </div>
             </Grid>
