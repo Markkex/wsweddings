@@ -116,7 +116,7 @@ letter-spacing: -5.2px;
   text-align: center;
   font-family: "Cormorant Garamond";
   font-size: 18px;
-  font-style: normal;
+  font-style: italic;
   font-weight: 400;
   line-height: normal;
   letter-spacing: 0.36px;
@@ -137,7 +137,6 @@ letter-spacing: -5.2px;
   color: #AE6D3F;
 text-align: center;
 
-/* FAQ */
 font-size: 24px;
 font-style: normal;
 font-weight: 700;
@@ -147,11 +146,11 @@ letter-spacing: 0.48px;
 
 .faq-question-answer {
   color: #000;
-text-align: center;
+text-align: left;
 
 /* body faq */
 font-family: "Cormorant Garamond";
-font-size: 20px;
+font-size: 19px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
