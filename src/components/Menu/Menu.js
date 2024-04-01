@@ -106,7 +106,8 @@ function ResponsiveAppBar() {
         >
           <Toolbar disableGutters>
             <Box
-              onClick={handleOpen}
+              //onClick={handleOpen}
+              onMouseEnter={handleOpen}
               sx={{
                 display: { xs: "flex", md: "flex" },
               }}
@@ -128,7 +129,6 @@ function ResponsiveAppBar() {
                 <Typography
                   variant="span"
                   noWrap
-                  onClick={() => console.log("cenas")}
                   sx={{
                     fontFamily: "Cinzel",
                     fontWeight: 600,
@@ -215,6 +215,7 @@ function ResponsiveAppBar() {
                   key={page.name}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 2, color: "white", display: "block" }}
+                  className="hover-menu-items"
                 >
                   <Link href={page.link} className="menu-items-color">
                     {page.name}

@@ -36,3 +36,9 @@
 .padding-appbar {
 
 }
+
+.hover-menu-items:hover {
+    background-color: transparent;
+    border-radius: 25px;
+    border: 1px solid var(--sixth-color);
+}
