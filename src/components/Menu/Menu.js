@@ -8,15 +8,10 @@ import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Menu from "@mui/material/Menu";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 import "./index.css";
 import Image from "next/image";
-import useScrollTrigger from "@mui/material/useScrollTrigger";
 import MenuScrollToChange from "../MenuScrollToChange/MenuScrollToChange";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -39,6 +34,10 @@ const pages = [
     name: "Contact",
     link: "/contact",
   },
+  {
+    name: "Projects", 
+    link: "/projects"
+  }
 ];
 
 const style = {
@@ -104,12 +103,15 @@ function ResponsiveAppBar() {
           position={pathname === "/" ? "fixed" : "sticky"}
           className="transparent-background-color no-padding padding-appbar"
         >
-          <Toolbar disableGutters>
+          <Toolbar disableGutters sx={{
+            display: "flex",
+            justifyContent: "space-evenly"
+          }}>
             <Box
               //onClick={handleOpen}
               onMouseEnter={handleOpen}
               sx={{
-                display: { xs: "flex", md: "flex" },
+                display: { xs: "none", md: "flex" },
               }}
               flexGrow={{ xs: 1, md: 1 }}
             >
@@ -163,7 +165,7 @@ function ResponsiveAppBar() {
               sx={{
                 display: { xs: "flex", md: "none" },
                 justifyContent: "flex-end",
-                flexGrow: "1",
+                
               }}
             >
               <IconButton

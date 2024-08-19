@@ -3,7 +3,6 @@
 import { Box, Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import "./index.css";
-import Contact from "@/components/Contact/Contact";
 import { Fragment, useEffect, useState } from "react";
 import testimonialDataJson from "../../data/testimonials.json";
 import TestimonialsCard from "@/components/TestimonialsCard/TestimonialsCard";

@@ -1,0 +1,43 @@
+"use client";
+
+import { Box, Container } from "@mui/material";
+import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
+import "./index.css";
+import Contact from "@/components/Contact/Contact";
+import { Fragment, useEffect, useState } from "react";
+import testimonialDataJson from "../../data/testimonials.json";
+import TestimonialsCard from "@/components/TestimonialsCard/TestimonialsCard";
+import Image from "next/image";
+import { Splide, SplideSlide } from "@splidejs/react-splide";
+import projects from "../../data/projects.json";
+import "@splidejs/react-splide/css";
+import ProjectsCard from "@/components/ProjectsCard";
+
+export default function Page() {
+  return (
+    <Container>
+      <Grid container spacing={3} marginTop={5} marginBottom={2}>
+        <Grid item xs={12}>
+          <Box>
+            <div className="title">
+              <h1
+                className="pages-titles"
+                style={{ marginBlockEnd: "1rem", textAlign: "center" }}
+              >
+                Projects
+              </h1>
+            </div>
+          </Box>
+        </Grid>
+          {projects.projects.map((project, index) => {
+            return (
+              <Grid item container key={index} spacing={0} xs={12} md={6} xl={4} style={{textAlign: "center"}} justifyContent="center"
+  alignItems="center">
+                <ProjectsCard project={project} />
+              </Grid>
+            );
+          })}
+        </Grid>
+    </Container>
+  );
+}
