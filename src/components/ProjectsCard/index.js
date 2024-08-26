@@ -37,7 +37,7 @@ export default function ProjectsCard({ project }) {
 
   return (
     <Card
-      sx={{ maxWidth: 400, minHeight: 700 }}
+      sx={{ maxWidth: 400, minWidth: 360 }}
       style={{
         backgroundColor: "rgba(221, 163, 118, 0.15)",
         padding: "0.5rem",
@@ -45,14 +45,14 @@ export default function ProjectsCard({ project }) {
     >
       <CardHeader
         style={{ textTransform: "uppercase" }}
-        title={project.name}
+        title={project.title}
         //subheader="September 14, 2016"
       />
       <div style={{ textAlign: "center" }}>
         <iframe
-          width="350"
-          height="300"
-          src={"https://www.youtube.com/embed/" + project.embeded}
+          width="auto"
+          height="auto"
+          src={"https://www.youtube.com/embed/" + project.id}
           title="YouTube video player"
           frameBorder={0}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -63,15 +63,15 @@ export default function ProjectsCard({ project }) {
 
       <CardContent style={{ height: "200px"}}>
         <Typography variant="body2" color="text.secondary">
-          {project.textOne}
+          {getFirst10Words(project.snippet.description) + "..."}
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <Link href={project.url} target="_blank">
+        <Link href={"https://www.youtube.com/watch?v=" +  project.id} target="_blank">
           <BootstrapButton className="contact-button">VIEW NOW</BootstrapButton>
         </Link>
         {
-            project.textTwo && 
+            project.snippet.description && 
             <ExpandMore
           expand={expanded}
           onClick={handleExpandClick}
@@ -83,11 +83,10 @@ export default function ProjectsCard({ project }) {
         }
       </CardActions>
       {
-        project.textTwo &&
+        project.snippet.description &&
         <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent>
-          <Typography paragraph>{project.textTwo}</Typography>
-          <Typography paragraph>{project.textThree}</Typography>
+          <Typography paragraph>{project.snippet.description}</Typography>
         </CardContent>
       </Collapse>
       }
@@ -120,3 +119,10 @@ const BootstrapButton = styled(Button)({
     color: "#DDA376",
   },
 });
+
+function getFirst10Words(str) {
+  const words = str.split(/\s+/);
+  const first10Words = words.slice(0, 30);
+  
+  return first10Words.join(' ');
+}

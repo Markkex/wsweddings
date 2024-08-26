@@ -19,7 +19,7 @@ import { useState } from "react";
 
 import Modal from "@mui/material/Modal";
 import Contact from "@/components/Contact/Contact";
-import CancelIcon from '@mui/icons-material/Cancel';
+import CancelIcon from "@mui/icons-material/Cancel";
 import { useEffect } from "react";
 const pages = [
   {
@@ -35,18 +35,18 @@ const pages = [
     link: "/contact",
   },
   {
-    name: "Projects", 
-    link: "/projects"
-  }
+    name: "Projects",
+    link: "/projects",
+  },
 ];
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  bgcolor: '#FEFBF0',
-  borderRadius: '25px',
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "#FEFBF0",
+  borderRadius: "25px",
   p: 4,
 };
 
@@ -58,27 +58,24 @@ function ResponsiveAppBar() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const pathname = usePathname();
 
-
-
   useEffect(() => {
     let width = null;
     let height = null;
-    if(window.innerWidth <= 600) {
+    if (window.innerWidth <= 600) {
       width = "100vw";
     } else {
       width = "auto";
     }
 
-    if(window.innerWidth <= 600) {
+    if (window.innerWidth <= 600) {
       height = "100vh";
     } else {
       height = "auto";
     }
-  
+
     style.height = height;
     style.width = width;
-  }, [])
-  
+  }, []);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -103,10 +100,13 @@ function ResponsiveAppBar() {
           position={pathname === "/" ? "fixed" : "sticky"}
           className="transparent-background-color no-padding padding-appbar"
         >
-          <Toolbar disableGutters sx={{
-            display: "flex",
-            justifyContent: "space-evenly"
-          }}>
+          <Toolbar
+            disableGutters
+            sx={{
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+          >
             <Box
               //onClick={handleOpen}
               onMouseEnter={handleOpen}
@@ -147,7 +147,7 @@ function ResponsiveAppBar() {
                 display: { xs: "flex", md: "flex" },
                 justifyContent: "center",
               }}
-              flexGrow={3}
+              flexGrow={{ xs: 2, md: 1 }}
             >
               <Link href="/">
                 <Image
@@ -165,7 +165,7 @@ function ResponsiveAppBar() {
               sx={{
                 display: { xs: "flex", md: "none" },
                 justifyContent: "flex-end",
-                
+                flexGrow: 0
               }}
             >
               <IconButton
@@ -209,14 +209,14 @@ function ResponsiveAppBar() {
               sx={{
                 display: { xs: "none", md: "flex" },
                 justifyContent: "flex-end",
-                flexGrow: "1",
+                flexGrow: 0.7
               }}
             >
               {pages.map((page) => (
                 <Button
                   key={page.name}
                   onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
+                  sx={{ my: 1, color: "white", display: "block" }}
                   className="hover-menu-items"
                 >
                   <Link href={page.link} className="menu-items-color">
@@ -234,22 +234,29 @@ function ResponsiveAppBar() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >
-      <Box sx={style}>
-        <div  style={{display:'flex', padding: '20px', justifyContent: 'flex-end'}} onClick={handleClose}>
-        <CancelIcon  sx={{color: '#DDA376'}}/>
-        </div>
-        <div style={{textAlign: "center"}}>
-          <span>
-            For a full price list or to place a sample order please fill out
-            form below
-          </span>
-        </div>
-        <div style={{textAlign: "center"}}>
-          <span>
-            Allow a few moments for form to send and receive confirmation
-          </span>
-        </div>
-        <Contact />
+        <Box sx={style}>
+          <div
+            style={{
+              display: "flex",
+              padding: "20px",
+              justifyContent: "flex-end",
+            }}
+            onClick={handleClose}
+          >
+            <CancelIcon sx={{ color: "#DDA376" }} />
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <span>
+              For a full price list or to place a sample order please fill out
+              form below
+            </span>
+          </div>
+          <div style={{ textAlign: "center" }}>
+            <span>
+              Allow a few moments for form to send and receive confirmation
+            </span>
+          </div>
+          <Contact />
         </Box>
       </Modal>
     </React.Fragment>
