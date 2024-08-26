@@ -52,7 +52,7 @@ export default function Page() {
         </Grid>
           {videos.map((project, index) => {
             return (
-              <Grid item container key={index} spacing={0} xs={12} md={6} xl={4} style={{textAlign: "center"}} justifyContent="center"
+              <Grid item container key={index} spacing={0} xs={12} md={6} xl={6} style={{textAlign: "center"}} justifyContent="center"
   alignItems="center">
                 <ProjectsCard project={project} />
               </Grid>

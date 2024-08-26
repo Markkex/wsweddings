@@ -37,7 +37,7 @@ export default function ProjectsCard({ project }) {
 
   return (
     <Card
-      sx={{ maxWidth: 400, minWidth: 360 }}
+      sx={{ maxWidth: 400, minWidth: 416 }}
       style={{
         backgroundColor: "rgba(221, 163, 118, 0.15)",
         padding: "0.5rem",
@@ -50,8 +50,8 @@ export default function ProjectsCard({ project }) {
       />
       <div style={{ textAlign: "center" }}>
         <iframe
-          width="auto"
-          height="auto"
+          width="390"
+          height="300"
           src={"https://www.youtube.com/embed/" + project.id}
           title="YouTube video player"
           frameBorder={0}
