@@ -7,42 +7,46 @@ import { Fragment, useEffect, useState } from "react";
 import testimonialDataJson from "../../data/testimonials.json";
 import TestimonialsCard from "@/components/TestimonialsCard/TestimonialsCard";
 import Image from "next/image";
+import Link from "next/link";
 
 const applyCorrectGrid = (testimonial) => {
-    if(testimonial.initialCol >= 8) {
-        return (
-            <Fragment>
-                <Grid xs={12} md={testimonial.initialCol}>
-                <TestimonialsCard
-                  key={testimonial.url}
-                  testimonial={testimonial}
-                />
-                </Grid>
-                <Grid md={testimonial.lastCol}></Grid>
-            </Fragment>
-        );
-    } 
-    if(testimonial.lastCol >= 8) {
-        return (
-            <Fragment>
-                <Grid md={testimonial.initialCol}></Grid>
-                <Grid xs={12} md={testimonial.lastCol}>
-                <TestimonialsCard
-                  key={testimonial.url}
-                  testimonial={testimonial}
-                />
-                </Grid>
-            </Fragment>
-        );
-    }
-}
+  if (testimonial.initialCol >= 8) {
+    return (
+      <Fragment>
+        <Grid xs={12} md={testimonial.initialCol}>
+          <Link
+            href={`/testimonials/${testimonial.url}`}
+            style={{ textDecoration: "none" }}
+          >
+            <TestimonialsCard key={testimonial.url} testimonial={testimonial} />
+          </Link>
+        </Grid>
+        <Grid md={testimonial.lastCol}></Grid>
+      </Fragment>
+    );
+  }
+  if (testimonial.lastCol >= 8) {
+    return (
+      <Fragment>
+        <Grid md={testimonial.initialCol}></Grid>
+        <Grid xs={12} md={testimonial.lastCol}>
+          <Link
+            href={`/testimonials/${testimonial.url}`}
+            style={{ textDecoration: "none" }}
+          >
+            <TestimonialsCard key={testimonial.url} testimonial={testimonial} />
+          </Link>
+        </Grid>
+      </Fragment>
+    );
+  }
+};
 
 export default function Page() {
   const [testimonialData, setTestimonialData] = useState([]);
 
   useEffect(() => {
     setTestimonialData(testimonialDataJson.testimonials);
-    console.log(testimonialData);
   }, [testimonialData]);
 
   return (
@@ -65,11 +69,7 @@ export default function Page() {
           </Grid>
         </Grid>
         <Grid xs={12} md={6}>
-        
-        <div className="testimonials-background-image">
-        
-        </div>
-        
+          <div className="testimonials-background-image"></div>
         </Grid>
       </Grid>
     </Container>

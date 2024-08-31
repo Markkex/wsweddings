@@ -90,7 +90,6 @@ export default function ProjectsCard({ project }) {
         </CardContent>
       </Collapse>
       }
-      
     </Card>
   );
 }

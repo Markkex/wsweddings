@@ -6,7 +6,7 @@
             "initialCol": 9,
             "middleCol": 0,
             "lastCol": 3,
-            "url": "testimonials/evelyn-and-andrew"
+            "url": "evelyn-and-andrew"
         },
         {
             "textOne": "Very humble and caring with every detail. <br /> I highly recommend Wilson services, <br/> I guarantee you will not regret it. <br/> Thank you for everything, Wilson!",
@@ -14,7 +14,7 @@
             "initialCol": 3,
             "middleCol": 0,
             "lastCol": 9,
-            "url": "testimonials/charlotte-and-luka"
+            "url": "charlotte-and-luka"
         },
         {
             "textOne": "Very professional and didn't occupy us too <br /> much time as it was a very important day and <br /> we just wanted to enjoy the guests and the party. <br /> We recommend it very much!",
@@ -22,7 +22,7 @@
             "initialCol": 9,
             "middleCol": 0,
             "lastCol": 3,
-            "url": "testimonials/sophie-and-oliver"
+            "url": "sophie-and-oliver"
         }
     ]
 }

@@ -2,4 +2,9 @@
   border-radius: 23px;
   background: rgba(249, 238, 222, 0.25);
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  transition: transform 1s;
+}
+
+.testimonial-card:hover {
+  transform: scale(1.1); /* This zooms the element to 110% */
 }
