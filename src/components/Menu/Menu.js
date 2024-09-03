@@ -16,7 +16,7 @@ import MenuScrollToChange from "../MenuScrollToChange/MenuScrollToChange";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
+import Logo from '../../../public/images/logo.png'
 import Modal from "@mui/material/Modal";
 import Contact from "@/components/Contact/Contact";
 import CancelIcon from "@mui/icons-material/Cancel";
@@ -151,7 +151,7 @@ function ResponsiveAppBar() {
             >
               <Link href="/">
                 <Image
-                  src="/images/logo.png"
+                  src={Logo}
                   width={125}
                   height={75}
                   alt="Wilson Soares Film Logo"

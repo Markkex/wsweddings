@@ -14,9 +14,13 @@ import "@splidejs/react-splide/css";
 import ProjectsCard from "@/components/ProjectsCard";
 import getApiVideos from "../api/contact/getApiVideos";
 
+import Head from "next/head";
+import "@egjs/react-flicking/dist/flicking-inline.css";
+import Flicking from "@egjs/react-flicking";
+
 export default function Page() {
   const [videos, setVideos] = useState([]);
-  
+
   useEffect(() => {
     const fetchVideos = async () => {
       try {
@@ -24,17 +28,18 @@ export default function Page() {
         console.log(res); // This will show the API response in the console
         if (res) {
           setVideos(res);
+          console.log(videos);
         } else {
           console.log("No items found in the response");
         }
       } catch (err) {
         console.error("Error fetching videos:", err);
       }
-      
     };
-    fetchVideos()
-  }, [])
+    fetchVideos();
+  }, [videos]);
 
+  
   return (
     <Container>
       <Grid container spacing={3} marginTop={5} marginBottom={2}>
@@ -50,15 +55,24 @@ export default function Page() {
             </div>
           </Box>
         </Grid>
-          {videos.map((project, index) => {
-            return (
-              <Grid item container key={index} spacing={0} xs={12} md={6} xl={6} style={{textAlign: "center"}} justifyContent="center"
-  alignItems="center">
-                <ProjectsCard project={project} />
-              </Grid>
-            );
-          })}
+        <Grid item justifyItems="center" alignContent="center" xs={12}>
+          <Flicking
+            align="prev"
+            circularFallback="linear"
+            resizeOnContentsReady={true}
+            horizontal={false}
+            circular={true}
+          >
+            {videos.map((project, index) => {
+              return (
+                <div className="panel p-5" key={index}>
+                  <ProjectsCard project={project} />
+                </div>
+              );
+            })}
+          </Flicking>
         </Grid>
+      </Grid>
     </Container>
   );
 }

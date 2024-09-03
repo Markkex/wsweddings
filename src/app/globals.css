@@ -20,6 +20,14 @@
   letter-spacing: 0.32px;
 }
 
+.cormorant {
+  font-family: "Cormorant Garamond";
+}
+
+.cinzel {
+  font-family: Cinzel;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -169,4 +177,12 @@ letter-spacing: 0.4px;
 
 .faq-container {
   height: 350px;
+}
+
+.p-5 {
+  padding: 3rem;
+}
+
+.m-5 { 
+  margin: 5;
 }
