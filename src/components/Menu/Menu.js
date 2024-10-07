@@ -99,6 +99,7 @@ function ResponsiveAppBar() {
         <AppBar
           position={pathname === "/" ? "fixed" : "sticky"}
           className="transparent-background-color no-padding padding-appbar"
+          style={{margin: -2}}
         >
           <Toolbar
             disableGutters
@@ -106,10 +107,12 @@ function ResponsiveAppBar() {
               display: "flex",
               justifyContent: "space-evenly",
             }}
+            style={{margin: -2}}
           >
             <Box
-              //onClick={handleOpen}
-              onMouseEnter={handleOpen}
+              onClick={handleOpen}
+              //onMouseEnter={handleOpen}
+              style={{cursor: "pointer"}}
               sx={{
                 display: { xs: "none", md: "flex" },
               }}
@@ -229,7 +232,6 @@ function ResponsiveAppBar() {
           </Toolbar>
         </AppBar>
       </MenuScrollToChange>
-
         <Modal
           open={open}
           onClose={handleClose}
