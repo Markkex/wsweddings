@@ -16,7 +16,7 @@ import MenuScrollToChange from "../MenuScrollToChange/MenuScrollToChange";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import Logo from '../../../public/images/logo.png'
+import Logo from "../../../public/images/logo.png";
 import Modal from "@mui/material/Modal";
 import Contact from "@/components/Contact/Contact";
 import CancelIcon from "@mui/icons-material/Cancel";
@@ -157,6 +157,7 @@ function ResponsiveAppBar() {
                   alt="Wilson Soares Film Logo"
                   priority
                   className="margin-left-50"
+                  unoptimized
                 />
               </Link>
             </Box>
@@ -165,7 +166,7 @@ function ResponsiveAppBar() {
               sx={{
                 display: { xs: "flex", md: "none" },
                 justifyContent: "flex-end",
-                flexGrow: 0
+                flexGrow: 0,
               }}
             >
               <IconButton
@@ -209,7 +210,7 @@ function ResponsiveAppBar() {
               sx={{
                 display: { xs: "none", md: "flex" },
                 justifyContent: "flex-end",
-                flexGrow: 0.7
+                flexGrow: 0.7,
               }}
             >
               {pages.map((page) => (
@@ -228,37 +229,38 @@ function ResponsiveAppBar() {
           </Toolbar>
         </AppBar>
       </MenuScrollToChange>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box sx={style}>
-          <div
-            style={{
-              display: "flex",
-              padding: "20px",
-              justifyContent: "flex-end",
-            }}
-            onClick={handleClose}
-          >
-            <CancelIcon sx={{ color: "#DDA376" }} />
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <span>
-              For a full price list or to place a sample order please fill out
-              form below
-            </span>
-          </div>
-          <div style={{ textAlign: "center" }}>
-            <span>
-              Allow a few moments for form to send and receive confirmation
-            </span>
-          </div>
-          <Contact />
-        </Box>
-      </Modal>
+
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <div
+              style={{
+                display: "flex",
+                padding: "20px",
+                justifyContent: "flex-end",
+              }}
+              onClick={handleClose}
+            >
+              <CancelIcon sx={{ color: "#DDA376" }} />
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <span>
+                For a full price list or to place a sample order please fill out
+                form below
+              </span>
+            </div>
+            <div style={{ textAlign: "center" }}>
+              <span>
+                Allow a few moments for form to send and receive confirmation
+              </span>
+            </div>
+            <Contact />
+          </Box>
+        </Modal>
     </React.Fragment>
   );
 }

@@ -66,6 +66,7 @@ function Footer() {
                 height={150}
                 src="/images/logo.png"
                 alt="Big Wilson Weddings Logo"
+                unoptimized
               />
               <div className="flex-space-evenly">
                 <a href="https://www.youtube.com/@wilsonsoaresweddings" target="_blank">
@@ -103,6 +104,7 @@ function Footer() {
                 height={50}
                 src="/images/logo2.png"
                 alt="Small Wilson Weddings logo"
+                unoptimized
               />
               <div className="flex-space-evenly global-text-cormorand">
                 Wilson Soares Film <br />

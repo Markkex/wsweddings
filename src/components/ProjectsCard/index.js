@@ -41,12 +41,10 @@ export default function ProjectsCard({ project }) {
       >
         <CardContent>
           <div>
-            <h2 style={{ color: "white" }}>{project.snippet.title}</h2>
+            <h2 style={{ color: "#AE6D3F" }}>{project.snippet.title}</h2>
           </div>
-          <Grid container spacing={3} >
-            <Grid item sx={12} sm={12} md={6} xl={6} style={{backdropFilter: "blur(6px)"}}>
-              <p style={{color: "white"}}>{project.snippet.description}</p>
-            </Grid>
+          <Grid container spacing={2} padding={3} >
+            
             <Grid item sx={12} sm={12} md={6} xl={6}>
             <div style={{textAlign: "center"}}>
               <iframe
@@ -60,6 +58,9 @@ export default function ProjectsCard({ project }) {
                 allowFullScreen
               ></iframe>
               </div>
+            </Grid>
+            <Grid item sx={12} sm={12} md={6} xl={6} style={{backdropFilter: "blur(6px)", paddingTop: "0px" }}>
+              <p style={{color: "white"}}>{project.snippet.description}</p>
             </Grid>
           </Grid>
         </CardContent>
