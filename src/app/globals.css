@@ -186,3 +186,14 @@ letter-spacing: 0.4px;
 .m-5 { 
   margin: 5;
 }
+
+
+
+.pt-4rem {
+  padding-top: 4rem;
+}
+
+
+.pt-2rem {
+  padding-top: 2rem;
+}

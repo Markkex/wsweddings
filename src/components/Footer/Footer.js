@@ -20,7 +20,7 @@ function Footer() {
             md={4}
             display="flex"
             justifyContent="center"
-            alignItems="center"
+            alignItems="start"
           >
             <div style={{ textAlign: "center" }}>
               <div>
@@ -42,7 +42,7 @@ function Footer() {
                 </a>
               </div>
               <br />
-              <div>
+              <div className="pt-2rem">
                 <span>wilsonsoaresfilm@gmail.com</span>
               </div>
               <br />
@@ -94,7 +94,7 @@ function Footer() {
             xs={12}
             md={4}
             display="flex"
-            justifyContent="center"
+            justifyContent="start"
             alignItems="center"
             flexDirection="column"
           >
@@ -106,7 +106,7 @@ function Footer() {
                 alt="Small Wilson Weddings logo"
                 unoptimized
               />
-              <div className="flex-space-evenly global-text-cormorand">
+              <div className="flex-space-evenly pt-4rem  global-text-cormorand">
                 Wilson Soares Film <br />
                 All rights reserved
               </div>
