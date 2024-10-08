@@ -37,9 +37,8 @@ export default function Page() {
       }
     };
     fetchVideos();
-  }, [videos]);
+  }, []);
 
-  
   return (
     <Container>
       <Grid container spacing={3} marginTop={5} marginBottom={2}>
@@ -56,21 +55,13 @@ export default function Page() {
           </Box>
         </Grid>
         <Grid item justifyItems="center" alignContent="center" xs={12}>
-          <Flicking
-            align="prev"
-            circularFallback="linear"
-            resizeOnContentsReady={true}
-            horizontal={false}
-            circular={true}
-          >
-            {videos.map((project, index) => {
-              return (
-                <div className="panel p-5" key={index}>
+          {videos.map((project, index) => {
+            return (
+              <Grid item xs={12} key={index} className="p-5">
                   <ProjectsCard project={project} />
-                </div>
-              );
-            })}
-          </Flicking>
+              </Grid>
+            );
+          })}
         </Grid>
       </Grid>
     </Container>
