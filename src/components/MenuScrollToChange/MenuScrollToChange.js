@@ -16,9 +16,6 @@ const ScrollHandler = (props) => {
       boxShadow: "none",
       padding: "10px 0px",
       backdropFilter: trigger ?  "none" : "blur(5px)",
-      display: "flex", 
-      justifyContent: "space-between", 
-      position: "sticky", 
       top: 0
     },
   });

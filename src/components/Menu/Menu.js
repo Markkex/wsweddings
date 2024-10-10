@@ -100,114 +100,141 @@ function ResponsiveAppBar() {
   return (
     <React.Fragment>
       <MenuScrollToChange>
-        <div style={{ display: "flex" }}>
-          <div onClick={handleOpen}>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="200"
-              height="90"
-              viewBox="0 0 358 162"
-              fill="none"
+      <AppBar
+          position={pathname === "/" ? "fixed" : "sticky"}
+          className="transparent-background-color no-padding padding-appbar"
+          style={{margin: -2}}
+        >
+          <Toolbar
+            disableGutters
+            sx={{
+              display: "flex",
+              justifyContent: "space-evenly",
+            }}
+            style={{margin: -2}}
+          >
+            <Box
+              onClick={handleOpen}
+              //onMouseEnter={handleOpen}
+              style={{cursor: "pointer"}}
+              sx={{
+                display: { xs: "none", md: "flex" },
+              }}
+              flexGrow={{ xs: 1, md: 1 }}
             >
-              <path
-                d="M241.332 73.7707C135.307 170.669 16.4652 161.787 0 161.787V0L192.407 3.05258L358 2.54382L347.18 5.5964C314.393 16.5139 282.222 39.6293 259.209 57.9274C251.976 63.678 246.092 69.4209 241.332 73.7707Z"
-                fill="#AB7D2A"
-              />
-            </svg>
-            <div className="text-absoulte-inquiry">
-              <Typography
-                variant="span"
-                noWrap
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="200"
+                height="90"
+                viewBox="0 0 358 162"
+                fill="none"
+              >
+                <path
+                  d="M241.332 73.7707C135.307 170.669 16.4652 161.787 0 161.787V0L192.407 3.05258L358 2.54382L347.18 5.5964C314.393 16.5139 282.222 39.6293 259.209 57.9274C251.976 63.678 246.092 69.4209 241.332 73.7707Z"
+                  fill="#AB7D2A"
+                />
+              </svg>
+              <div className="text-absoulte-inquiry">
+                <Typography
+                  variant="span"
+                  noWrap
+                  sx={{
+                    fontFamily: "Cinzel",
+                    fontWeight: 600,
+                    color: "#F2E7D3",
+                    textDecoration: "none",
+                  }}
+                >
+                  INQUIRY
+                </Typography>
+              </div>
+            </Box>
+            <Box
+              sx={{
+                display: { xs: "flex", md: "flex" },
+                justifyContent: "center",
+              }}
+              flexGrow={{ xs: 2, md: 1 }}
+            >
+              <Link href="/">
+                <Image
+                  src={Logo}
+                  width={125}
+                  height={75}
+                  alt="Wilson Soares Film Logo"
+                  priority
+                  className="margin-left-50"
+                  unoptimized
+                />
+              </Link>
+            </Box>
+
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+                justifyContent: "flex-end",
+                flexGrow: 0,
+              }}
+            >
+              <IconButton
+                size="large"
+                aria-label="account of current user"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                anchorOrigin={{
+                  vertical: "bottom",
+                  horizontal: "left",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "left",
+                }}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
                 sx={{
-                  fontFamily: "Cinzel",
-                  fontWeight: 600,
-                  color: "#F2E7D3",
-                  textDecoration: "none",
+                  display: { xs: "block", md: "none" },
                 }}
               >
-                INQUIRY
-              </Typography>
-            </div>
-          </div>
-          <div>
-            <Link href="/">
-              <Image
-                src={Logo}
-                width={125}
-                height={75}
-                alt="Wilson Soares Film Logo"
-                priority
-                className="margin-left-50"
-                unoptimized
-              />
-            </Link>
-          </div>
-          {
-            isSmallScreen && 
-            <div>
-            <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
-              style={{ backgroundColor: "rgb(254, 251, 240) !important" }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+                {pages.map((page) => (
+                  <MenuItem key={page.name} onClick={handleCloseNavMenu}>
+                    <Typography textAlign="center" className="menu-items-color">
+                      <Link href={page.link}>{page.name}</Link>
+                    </Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+            <Box
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "none", md: "flex" },
+                justifyContent: "flex-end",
+                flexGrow: 0.7,
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.name} onClick={handleCloseNavMenu}>
-                  <span>
-                    <Link href={page.link} className="menu-items-color">
-                      {page.name}
-                    </Link>
-                  </span>
-                </MenuItem>
-              ))}
-            </Menu>
-          </div>
-          }
-          {
-            ! isSmallScreen && 
-            <div style={{display: "flex"}}>
-            {pages.map((page) => (
-              <Link
-                href={page.link}
-                key={page.name}
-                className="menu-items-color"
-              >
                 <Button
+                  key={page.name}
                   onClick={handleCloseNavMenu}
                   sx={{ my: 1, color: "white", display: "block" }}
                   className="hover-menu-items"
                 >
-                  <span className="menu-items-color">{page.name}</span>
+                  <Link href={page.link} className="menu-items-color">
+                    {page.name}
+                  </Link>
                 </Button>
-              </Link>
-            ))}
-          </div>
-          }
-          
-        </div>
+              ))}
+            </Box>
+          </Toolbar>
+        </AppBar>
       </MenuScrollToChange>
       <Modal
         open={open}
