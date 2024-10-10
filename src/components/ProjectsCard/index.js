@@ -25,12 +25,11 @@ const ExpandMore = styled((props) => {
 export default function ProjectsCard({ project }) {
   const [expanded, setExpanded] = React.useState(false);
   const isSmallScreen = useMediaQuery("(max-width:800px)");
-
+  const isPhoneScreen = useMediaQuery("(max-width:600px)");
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
 
-  if (!isSmallScreen) {
     return (
       <Card
         sx={{ width: "100%" }}
@@ -50,8 +49,8 @@ export default function ProjectsCard({ project }) {
               <Grid item sx={12} sm={12} md={6} xl={6}>
                 <div style={{ textAlign: "center" }}>
                   <iframe
-                    height={400}
-                    width="100%"
+                    width = {isPhoneScreen ? "375px" : isSmallScreen ? "390px" : "100%"}
+                    height = {isPhoneScreen ? "400px" : isSmallScreen ? "300px" : 400}
                     src={"https://www.youtube.com/embed/" + project.id}
                     title="YouTube video player"
                     frameBorder={0}
@@ -89,67 +88,8 @@ export default function ProjectsCard({ project }) {
         </div>
       </Card>
     );
-  }
 
-  return (
-    <Card
-      sx={{ width: "100%" }}
-      style={{
-        backgroundColor: "rgba(221, 163, 118, 0.15)",
-        padding: "0.5rem",
-      }}
-    >
-      <CardHeader
-        style={{ textTransform: "uppercase" }}
-        title={project.title}
 
-        //subheader="September 14, 2016"
-      />
-      <div style={{ textAlign: "center" }}>
-        <iframe
-          width="390"
-          height="300"
-          src={"https://www.youtube.com/embed/" + project.id}
-          title="YouTube video player"
-          frameBorder={0}
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
-      </div>
-
-      <CardContent style={{ height: "200px" }}>
-        <Typography variant="body2" color="text.secondary">
-          {getFirst10Words(project.snippet.description) + "..."}
-        </Typography>
-      </CardContent>
-      <CardActions disableSpacing>
-        <Link
-          href={"https://www.youtube.com/watch?v=" + project.id}
-          target="_blank"
-        >
-          <BootstrapButton className="contact-button">VIEW NOW</BootstrapButton>
-        </Link>
-        {project.snippet.description && (
-          <ExpandMore
-            expand={expanded}
-            onClick={handleExpandClick}
-            aria-expanded={expanded}
-            aria-label="show more"
-          >
-            <ExpandMoreIcon />
-          </ExpandMore>
-        )}
-      </CardActions>
-      {project.snippet.description && (
-        <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <CardContent>
-            <Typography paragraph>{project.snippet.description}</Typography>
-          </CardContent>
-        </Collapse>
-      )}
-    </Card>
-  );
 }
 
 const BootstrapButton = styled(Button)({

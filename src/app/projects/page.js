@@ -57,7 +57,7 @@ export default function Page() {
         <Grid item justifyItems="center" alignContent="center" xs={12}>
           {videos.map((project, index) => {
             return (
-              <Grid item xs={12} key={index} className="p-5">
+              <Grid item xs={12} xl={3} key={index} className="p-5">
                   <ProjectsCard project={project} />
               </Grid>
             );
