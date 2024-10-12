@@ -1,13 +1,16 @@
-import React from 'react'
+import React from "react";
 
 const getApiVideos = async (keys) => {
-    try {
-        const res = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&id=${keys}&maxResults=50&key=${process.env.NEXT_PUBLIC_GOOGLE_API_KEY}`);
-		const data = await res.json();
-		return data.items;
-	} catch (err) {
-		console.log(err);
-	}
-}
+  try {
+	fetch(process.env.NEXT_PUBLIC_API_SERVER + "/get-projects/index.php",)
+	.then((response) => response.json())
+	.then((data) => {
+	  return data;
+	})
+	.catch((error) => console.error('Error fetching projects:', error))
+  } catch (err) {
+    console.log(err);
+  }
+};
 
-export default getApiVideos
+export default getApiVideos;

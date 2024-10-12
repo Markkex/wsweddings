@@ -60,7 +60,7 @@ export default function Contact() {
 
   return (
     
-      <Box  m={5}>
+      <Box m={5}>
         <Grid container spacing={3}>
           <Grid
             item

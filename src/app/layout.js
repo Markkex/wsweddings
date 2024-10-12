@@ -1,5 +1,4 @@
-import { Container } from "@mui/material";
-import { Cormorant_Garamond, cinzel } from "./fonts/fonts";
+import { cinzel } from "./fonts/fonts";
 import "./globals.css";
 import Footer from "@/components/Footer/Footer";
 import Menu from "@/components/Menu/Menu";

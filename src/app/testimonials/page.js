@@ -15,7 +15,8 @@ const applyCorrectGrid = (testimonial) => {
       <Fragment>
         <Grid xs={12} md={testimonial.initialCol}>
           <Link
-            href={`/testimonials/${testimonial.url}`}
+            href="#"
+            //href={`/testimonials/${testimonial.url}`}
             style={{ textDecoration: "none" }}
           >
             <TestimonialsCard className={'cormorant'} key={testimonial.url} testimonial={testimonial} />
@@ -31,7 +32,8 @@ const applyCorrectGrid = (testimonial) => {
         <Grid md={testimonial.initialCol}></Grid>
         <Grid xs={12} md={testimonial.lastCol}>
           <Link
-            href={`/testimonials/${testimonial.url}`}
+            href="#"
+            //href={`/testimonials/${testimonial.url}`}
             style={{ textDecoration: "none" }}
           >
             <TestimonialsCard className={'cormorant'} key={testimonial.url} testimonial={testimonial} />

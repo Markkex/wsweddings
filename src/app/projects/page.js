@@ -24,14 +24,12 @@ export default function Page() {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await getApiVideos(projects.housingProjects.ids);
-        console.log(res); // This will show the API response in the console
-        if (res) {
-          setVideos(res);
-          console.log(videos);
-        } else {
-          console.log("No items found in the response");
-        }
+        fetch(process.env.NEXT_PUBLIC_API_SERVER + "/get-projects/index.php",)
+        .then((response) => response.json())
+        .then((data) => {
+          setVideos(data);
+        })
+        .catch((error) => console.error('Error fetching projects:', error))
       } catch (err) {
         console.error("Error fetching videos:", err);
       }

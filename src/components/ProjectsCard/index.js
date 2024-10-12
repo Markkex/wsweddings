@@ -34,7 +34,7 @@ export default function ProjectsCard({ project }) {
       <Card
         sx={{ width: "100%" }}
         style={{
-          backgroundImage: `url("${project.snippet.thumbnails.maxres.url}")`,
+          backgroundImage: `url("${project.thumbnails}")`,
           padding: "0.0rem",
         }}
       >
@@ -43,7 +43,7 @@ export default function ProjectsCard({ project }) {
             <Grid container spacing={2} padding={3}>
               <Grid item spacing={2} padding={1} xs={12}>
                 <h2 style={{ color: "white" }}>
-                  <span>{project.snippet.title}</span>
+                  <span>{project.name}</span>
                 </h2>
               </Grid>
               <Grid item sx={12} sm={12} md={6} xl={6}>
@@ -68,8 +68,8 @@ export default function ProjectsCard({ project }) {
                 xl={6}
                 style={{ paddingTop: "0px" }}
               >
-                <p style={{ color: "white" }}>{project.snippet.description}</p>
-              </Grid>
+              <div  style={{color: "white"}} dangerouslySetInnerHTML={{ __html: project.description }}></div>
+            </Grid>
             </Grid>
           </CardContent>
           <CardActions style={{padding: "16px"}}>
