@@ -7,12 +7,12 @@ export const metadata = {
   title: "Wilson Soares Film",
   description: "Wilson Soares Film wedding film maker",
   icons: {
-    icon: "./favicon.ico",
-    shortcut: "./favicon.ico",
-    apple: "./favicon.ico",
+    icon: "./icon.ico",
+    shortcut: "./icon.ico",
+    apple: "./icon.ico",
     other: {
       rel: "logo",
-      url: "./favicon.ico",
+      url: "./icon.ico",
     },
   },
 };
