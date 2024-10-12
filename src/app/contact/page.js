@@ -3,7 +3,7 @@
 import { Box, Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import "./index.css";
-import Contact from "@/components/Contact/Contact";
+import Contact from "../../components/Contact/Contact";
 
 export default function Page() {
   return (

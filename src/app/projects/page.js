@@ -3,7 +3,7 @@
 import { Box, Container } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
 import "./index.css";
-import Contact from "@/components/Contact/Contact";
+import Contact from "../../components/Contact/Contact";
 import { Fragment, useEffect, useState } from "react";
 import testimonialDataJson from "../../data/testimonials.json";
 import TestimonialsCard from "@/components/TestimonialsCard/TestimonialsCard";
@@ -11,12 +11,9 @@ import Image from "next/image";
 import { Splide, SplideSlide } from "@splidejs/react-splide";
 import projects from "../../data/projects.json";
 import "@splidejs/react-splide/css";
-import ProjectsCard from "@/components/ProjectsCard";
+import ProjectsCard from "../../components/ProjectsCard";
 import getApiVideos from "../api/contact/getApiVideos";
 
-import Head from "next/head";
-import "@egjs/react-flicking/dist/flicking-inline.css";
-import Flicking from "@egjs/react-flicking";
 
 export default function Page() {
   const [videos, setVideos] = useState([]);

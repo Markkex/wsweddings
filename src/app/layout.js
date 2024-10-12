@@ -1,7 +1,7 @@
 import { cinzel } from "./fonts/fonts";
 import "./globals.css";
-import Footer from "@/components/Footer/Footer";
-import Menu from "@/components/Menu/Menu";
+import Footer from "../components/Footer/Footer";
+import Menu from "../components/Menu/Menu";
 import Head from "next/head";
 
 export const metadata = {

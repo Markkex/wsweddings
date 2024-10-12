@@ -18,7 +18,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import Logo from "../../../public/images/logo.png";
 import Modal from "@mui/material/Modal";
-import Contact from "@/components/Contact/Contact";
+import Contact from "../../components/Contact/Contact";
 import CancelIcon from "@mui/icons-material/Cancel";
 import { useEffect } from "react";
 import { useMediaQuery } from "@mui/material";
