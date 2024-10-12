@@ -2,6 +2,7 @@ import { cinzel } from "./fonts/fonts";
 import "./globals.css";
 import Footer from "../components/Footer/Footer";
 import Menu from "../components/Menu/Menu";
+import Head from "next/head";
 
 export const metadata = {
   title: "Wilson Soares Film",
@@ -20,6 +21,14 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Head>
+        <link
+          rel="icon"
+          href="/icon?<generated>"
+          type="image/<generated>"
+          sizes="<generated>"
+        />
+      </Head>
       <body className={cinzel.className}>
         <Menu />
         {children}
