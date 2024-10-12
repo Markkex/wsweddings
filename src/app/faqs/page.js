@@ -1,9 +1,8 @@
 "use client";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import { Container } from "@mui/system";
 import Grid from "@mui/material/Unstable_Grid2"; // Grid version 2
-import Image from "next/image";
-import Faqs from "@/components/Faqs/Faqs";
+import Faqs from "../../components/Faqs/Faqs";
 import faqDataJson from "../../data/faqs.json";
 import { useEffect, useState } from "react";
 
